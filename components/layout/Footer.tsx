@@ -68,8 +68,12 @@ export default function Footer() {
             © {new Date().getFullYear()} INNOCORELIX, Inc. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-ivory/40">
-            <span className="hover:text-ivory/60 cursor-pointer transition-colors">Privacy Policy</span>
-            <span className="hover:text-ivory/60 cursor-pointer transition-colors">Terms of Service</span>
+            <Link href="/privacy" className="hover:text-ivory/60 transition-colors focus-ring rounded-sm">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-ivory/60 transition-colors focus-ring rounded-sm">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

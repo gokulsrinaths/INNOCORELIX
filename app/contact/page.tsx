@@ -12,11 +12,12 @@ export default function ContactPage() {
     organization: "",
     message: "",
   });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for reaching out. We will respond within 24 hours.");
     setFormState({ name: "", email: "", organization: "", message: "" });
+    setSubmitted(true);
   };
 
   return (
@@ -47,6 +48,12 @@ export default function ContactPage() {
             <ScrollReveal className="lg:col-span-3">
               <form onSubmit={handleSubmit} className="glass rounded-3xl p-8 md:p-12">
                 <h2 className="font-heading text-2xl font-bold mb-8">Send a Message</h2>
+                {submitted && (
+                  <div className="mb-8 rounded-2xl border border-emerald/30 bg-emerald/10 px-5 py-4 text-sm text-ivory/80">
+                    Thanks — your message was recorded in this demo UI. Connect the form to an
+                    email/service when you’re ready for production.
+                  </div>
+                )}
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
@@ -58,7 +65,7 @@ export default function ContactPage() {
                       required
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-ivory placeholder:text-ivory/30 focus:outline-none focus:border-cyan/50 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-ivory placeholder:text-ivory/30 focus-ring focus:border-cyan/50 transition-colors"
                       placeholder="Your name"
                     />
                   </div>
@@ -71,7 +78,7 @@ export default function ContactPage() {
                       required
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-ivory placeholder:text-ivory/30 focus:outline-none focus:border-cyan/50 transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-ivory placeholder:text-ivory/30 focus-ring focus:border-cyan/50 transition-colors"
                       placeholder="you@organization.com"
                     />
                   </div>
@@ -87,7 +94,7 @@ export default function ContactPage() {
                     onChange={(e) =>
                       setFormState({ ...formState, organization: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-ivory placeholder:text-ivory/30 focus:outline-none focus:border-cyan/50 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-ivory placeholder:text-ivory/30 focus-ring focus:border-cyan/50 transition-colors"
                     placeholder="Company or institution"
                   />
                 </div>
@@ -103,7 +110,7 @@ export default function ContactPage() {
                     onChange={(e) =>
                       setFormState({ ...formState, message: e.target.value })
                     }
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-ivory placeholder:text-ivory/30 focus:outline-none focus:border-cyan/50 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-ivory placeholder:text-ivory/30 focus-ring focus:border-cyan/50 transition-colors resize-none"
                     placeholder="How can we collaborate?"
                   />
                 </div>
@@ -112,7 +119,7 @@ export default function ContactPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full py-4 bg-cyan text-midnight font-semibold rounded-xl flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan/20 transition-all"
+                  className="w-full py-4 bg-cyan text-midnight font-semibold rounded-xl flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-cyan/20 transition-all focus-ring"
                 >
                   <Send className="w-5 h-5" />
                   Send Message

@@ -40,6 +40,9 @@
 }
 
 @layer utilities {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan/60 focus-visible:ring-offset-2 focus-visible:ring-offset-midnight;
+  }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan to-emerald;
   }
@@ -54,5 +57,31 @@
   }
   .glow-emerald {
     box-shadow: 0 0 40px rgba(42, 245, 152, 0.15), 0 0 80px rgba(42, 245, 152, 0.05);
+  }
+}
+
+@layer base {
+  ::selection {
+    background: rgba(0, 209, 255, 0.25);
+  }
+
+  /* Subtle scrollbar styling (Chromium/WebKit) */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 999px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
   }
 }

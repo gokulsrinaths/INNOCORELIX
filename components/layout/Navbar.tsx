@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -21,6 +22,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
@@ -40,15 +42,23 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="relative px-3 py-2 text-sm font-medium text-ivory/70 hover:text-ivory transition-colors rounded-md hover:bg-white/5"
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={`relative px-3 py-2 text-sm font-medium rounded-md transition-colors focus-ring ${
+                pathname === link.href
+                  ? "text-ivory bg-white/5"
+                  : "text-ivory/70 hover:text-ivory hover:bg-white/5"
+              }`}
             >
               {link.label}
+              {pathname === link.href && (
+                <span className="absolute left-3 right-3 -bottom-0.5 h-px bg-gradient-to-r from-cyan/70 to-emerald/70" />
+              )}
             </Link>
           ))}
         </nav>
 
         <button
-          className="lg:hidden p-2 text-ivory"
+          className="lg:hidden p-2 text-ivory focus-ring rounded-md"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -70,7 +80,12 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="px-3 py-3 text-sm font-medium text-ivory/80 hover:text-ivory hover:bg-white/5 rounded-md transition-colors"
+                  aria-current={pathname === link.href ? "page" : undefined}
+                  className={`px-3 py-3 text-sm font-medium rounded-md transition-colors focus-ring ${
+                    pathname === link.href
+                      ? "text-ivory bg-white/10"
+                      : "text-ivory/80 hover:text-ivory hover:bg-white/5"
+                  }`}
                 >
                   {link.label}
                 </Link>
