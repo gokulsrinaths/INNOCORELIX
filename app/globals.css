@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 50% 5%;
+    --foreground: 40 20% 96%;
+    --card: 210 40% 8%;
+    --card-foreground: 40 20% 96%;
+    --popover: 210 40% 8%;
+    --popover-foreground: 40 20% 96%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 210 50% 5%;
+    --secondary: 210 30% 15%;
+    --secondary-foreground: 40 20% 96%;
+    --muted: 210 20% 20%;
+    --muted-foreground: 210 10% 60%;
+    --accent: 150 90% 56%;
+    --accent-foreground: 210 50% 5%;
+    --destructive: 348 100% 65%;
+    --destructive-foreground: 40 20% 96%;
+    --border: 210 20% 18%;
+    --input: 210 20% 18%;
+    --ring: 195 100% 50%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-midnight text-ivory font-body antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan to-emerald;
+  }
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .glass-strong {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+  }
+  .glow-cyan {
+    box-shadow: 0 0 40px rgba(0, 209, 255, 0.15), 0 0 80px rgba(0, 209, 255, 0.05);
+  }
+  .glow-emerald {
+    box-shadow: 0 0 40px rgba(42, 245, 152, 0.15), 0 0 80px rgba(42, 245, 152, 0.05);
+  }
+}
