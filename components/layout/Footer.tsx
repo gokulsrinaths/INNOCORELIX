@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -65,7 +65,7 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-ivory/40">
-            � {new Date().getFullYear()} INNOCORELIX, Inc. All rights reserved.
+            © {new Date().getFullYear()} INNOCORELIX, Inc. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-ivory/40">
             <span className="hover:text-ivory/60 cursor-pointer transition-colors">Privacy Policy</span>
@@ -76,3 +76,4 @@ export default function Footer() {
     </footer>
   );
 }
+
