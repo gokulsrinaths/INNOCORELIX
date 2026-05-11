@@ -129,7 +129,7 @@ export default function ResearchPage() {
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-5 h-5 text-cyan" />
                 <span className="text-sm text-cyan font-medium">
-                  {featuredPublication.journal} Â· {featuredPublication.year}
+                  {featuredPublication.journal} · {featuredPublication.year}
                 </span>
               </div>
 
